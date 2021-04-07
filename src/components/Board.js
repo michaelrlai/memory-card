@@ -27,7 +27,7 @@ const Board = () => {
     },
     {
       src: clefairy,
-      title: "Clefair",
+      title: "Clefairy",
     },
     {
       src: ekans,
@@ -85,14 +85,28 @@ const Board = () => {
     console.log(cards);
   };
 
+  const shuffle = () => {
+    const newCards = [...cards];
+    let i = newCards.length;
+    while (i) {
+      let randomIndex = Math.floor(Math.random() * i);
+      i--;
+      [newCards[randomIndex], newCards[i]] = [
+        newCards[i],
+        newCards[randomIndex],
+      ];
+    }
+    setCards(newCards);
+  };
+
   return (
     <div className="board">
-      <button onClick={handleClick}>Button</button>
+      <button onClick={shuffle}>Shuffle</button>
       <div className="card-container">
         {cards.map((card) => (
-          <button key={card.title} className="card">
-            <figure>{card.title}</figure>
+          <button key={card.title} className="card" onClick={handleClick}>
             <img src={card.src} alt="" />
+            <p className="caption">{card.title}</p>
           </button>
         ))}
       </div>
