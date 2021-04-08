@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Card from "./Card";
 import bulbasaur from "../images/bulbasaur.png";
 import caterpie from "../images/caterpie.png";
 import clefairy from "../images/clefairy.png";
@@ -15,7 +16,7 @@ import squirtle from "../images/squirtle.png";
 import vulpix from "../images/vulpix.png";
 import weedle from "../images/weedle.png";
 
-const Board = () => {
+const Board = (props) => {
   const images = [
     {
       src: bulbasaur,
@@ -102,12 +103,10 @@ const Board = () => {
   return (
     <div className="board">
       <button onClick={shuffle}>Shuffle</button>
+
       <div className="card-container">
         {cards.map((card) => (
-          <button key={card.title} className="card" onClick={handleClick}>
-            <img src={card.src} alt="" />
-            <p className="caption">{card.title}</p>
-          </button>
+          <Card key={card.title} card={card} handlePick={props.handlePick} />
         ))}
       </div>
     </div>
