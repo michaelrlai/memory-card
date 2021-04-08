@@ -1,4 +1,7 @@
 /* --------------------------------------------------------------------- */
+body {
+  background-color: rgb(30, 30, 30);
+}
 
 * {
   box-sizing: border-box;
@@ -12,21 +15,23 @@
   background-color: #282c34;
   color: white;
   height: 10vh;
+  text-align: center;
+  padding-top: 20px;
 }
 
 /* --------------------------------------------------------------------- */
 
 .board {
-  background-color: rgb(39, 39, 39);
+  background-color: rgb(30, 30, 30);
   width: 100vw;
 }
 
-.card-container {
-  padding: 50px 100px;
+.cards-container {
+  padding: 20px 100px;
   display: grid;
   grid-template-columns: repeat(auto-fit, 200px);
   column-gap: 20px;
-  row-gap: 20px;
+  row-gap: 30px;
   justify-content: space-around;
 }
 
@@ -34,20 +39,38 @@ button {
   outline: none;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 .card {
-  background-color: darkslategrey;
-  min-height: 100%;
-  width: 200px;
-  height: 220px;
-  border: 2px solid darkolivegreen;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 190px;
+  height: 190px;
+  background-color: #282c34;
+  border: none;
+  border-radius: 10px;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #323a4b;
+  height: 140px;
+  width: 160px;
+  border: none;
+  border-radius: 10px;
 }
 
 img {
-  max-height: 140px;
+  max-height: 120px;
 }
 
 .caption {
-  margin-top: 15px;
-  font-size: 20px;
-  color: white;
+  margin-top: 10px;
+  font-size: 16px;
+  color: rgb(199, 199, 199);
 }

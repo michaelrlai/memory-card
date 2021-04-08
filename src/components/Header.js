@@ -1,8 +1,8 @@
-const Header = () => {
+const Header = (props) => {
   return (
     <div className="header">
-      <div>Score</div>
-      <div>High score:</div>
+      <div>Score: {props.score}</div>
+      <div>High score: {props.highScore}</div>
     </div>
   );
 };

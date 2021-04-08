@@ -3,12 +3,21 @@ import Header from "./Header";
 import Board from "./Board";
 
 const Game = () => {
-  const [score, setScore] = useState(50);
+  const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [pickedCards, setPickedCards] = useState([]);
 
-  const handlePick = (name) => {
-    console.log(name);
+  const handlePick = (pick) => {
+    if (!pickedCards.includes(pick)) {
+      setPickedCards((prevPickedCards) => [...prevPickedCards, pick]);
+      setScore((prevScore) => prevScore + 1);
+      if (score === highScore) {
+        setHighScore((prevHighScore) => prevHighScore + 1);
+      }
+    } else {
+      setPickedCards([]);
+      setScore(0);
+    }
   };
 
   return (

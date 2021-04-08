@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Card from "./Card";
 import bulbasaur from "../images/bulbasaur.png";
 import caterpie from "../images/caterpie.png";
@@ -82,10 +82,6 @@ const Board = (props) => {
 
   const [cards, setCards] = useState(images);
 
-  const handleClick = () => {
-    console.log(cards);
-  };
-
   const shuffle = () => {
     const newCards = [...cards];
     let i = newCards.length;
@@ -102,11 +98,14 @@ const Board = (props) => {
 
   return (
     <div className="board">
-      <button onClick={shuffle}>Shuffle</button>
-
-      <div className="card-container">
+      <div className="cards-container">
         {cards.map((card) => (
-          <Card key={card.title} card={card} handlePick={props.handlePick} />
+          <Card
+            key={card.title}
+            card={card}
+            handlePick={props.handlePick}
+            shuffle={shuffle}
+          />
         ))}
       </div>
     </div>
